@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WaterQualitySensor</string>
+    <string name="suhu">Suhu</string>
+    <string name="ph">Ph</string>
+    <string name="status">Status :</string>
+    <string name="good">Good</string>
+</resources>
