@@ -1,4 +1,7 @@
 package com.uin.waterqualitysensor
 
-data class SensorValue (var suhu: String? = "",
-                        var ph: String? = "")
+import com.google.firebase.database.IgnoreExtraProperties
+
+@IgnoreExtraProperties
+data class SensorValue (var ph: Long? = 0,
+                        var suhu: Long? = 0)

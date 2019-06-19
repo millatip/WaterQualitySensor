@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1096510965106",
+    "firebase_url": "https://waterqualitytester-2e436.firebaseio.com",
+    "project_id": "waterqualitytester-2e436",
+    "storage_bucket": "waterqualitytester-2e436.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096510965106:android:b7b703687890f562",
+        "android_client_info": {
+          "package_name": "com.uin.waterqualitysensor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096510965106-6th8iis5oqkd2alk0g0cn98bmbbc650s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNoQsx0SDgdWa8FXkRFerXXkC55S6TNCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096510965106-6th8iis5oqkd2alk0g0cn98bmbbc650s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

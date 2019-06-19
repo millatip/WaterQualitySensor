@@ -13,9 +13,9 @@ import java.util.concurrent.ThreadLocalRandom
 
 class MainActivity : AppCompatActivity() {
 
-    // ini buat coba aja
+   /* // ini buat coba aja
     val suhuRand: Int = 40
-    val phrand: Float = 6.9f
+    val phrand: Float = 6.9f*/
 
     companion object {
         private const val TAG = "MainActivity"
@@ -24,13 +24,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //readData()
-        changeCardColor(suhuRand, phrand)
+        readData()
+//        changeCardColor(suhuRand, phrand)
     }
 
     private fun readData() {
         val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("data")
+        val myRef = database.reference
 
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -39,19 +39,19 @@ class MainActivity : AppCompatActivity() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 val data = p0.getValue(SensorValue::class.java)
-                val suhu = data?.suhu?.toInt()
-                val ph = data?.ph?.toFloat()!!
+                val suhu = data?.suhu?.toFloat()!!
+                val ph = data.ph?.toFloat()!!
 
-                //changeCardColor(suhu, ph)
+                changeCardColor(suhu, ph)
 
             }
         })
     }
 
-    fun changeCardColor(suhu: Int?, ph: Float){
+    fun changeCardColor(suhu: Float, ph: Float){
         val suhuBackground = when (suhu) {
-            in 24..27 -> R.color.warning
-            in 28..30 -> R.color.good
+            in 24f..27f -> R.color.warning
+            in 28f..30f -> R.color.good
             else -> R.color.danger
         }
         val phBackground = when (ph) {
@@ -67,9 +67,9 @@ class MainActivity : AppCompatActivity() {
         layout_suhu.setBackgroundResource(suhuBackground)
         layout_ph.setBackgroundResource(phBackground)
 
-        if (phBackground == R.color.good && suhuBackground== R.color.good) status.text = "Excelent"
-        else if (phBackground == R.color.good || suhuBackground== R.color.good) status.text = "Good"
-        else if (phBackground != R.color.good && suhuBackground != R.color.good) status.text = "Danger"
+        if (phBackground == R.color.good && suhuBackground== R.color.good) status.text = "Optimal"
+        else if (phBackground == R.color.warning || suhuBackground == R.color.good) status.text = "Perlu tindakan"
+        else if (phBackground != R.color.good && suhuBackground != R.color.good) status.text = "Bahaya"
         else status.text = "idk"
     }
 }
